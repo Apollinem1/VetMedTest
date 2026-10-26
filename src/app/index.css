@@ -1,0 +1,205 @@
+@import 'core-frontend/styles/tokens.css';
+@import 'tailwindcss';
+@import '@heroui/styles';
+@import 'core-frontend/styles/tailwind-bridge.css';
+
+/* Плавный скролл по якорным ссылкам */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Gradient CTA (кнопки HeroUI с классом btn-gradient) — цвета из brand-токенов ─ */
+@layer components {
+  .btn-gradient {
+    background-image: linear-gradient(
+      135deg,
+      var(--brand-accent) 0%,
+      color-mix(in oklch, var(--brand-accent) 55%, var(--brand-info) 45%) 100%
+    ) !important;
+  }
+
+  .btn-gradient:hover,
+  .btn-gradient[data-hovered='true'] {
+    background-image: linear-gradient(
+      135deg,
+      var(--brand-accent-hover) 0%,
+      color-mix(in oklch, var(--brand-accent-hover) 50%, var(--brand-info) 50%) 100%
+    ) !important;
+  }
+}
+
+@layer components {
+  /* Toast: вертикальный стек вместо абсолютной «стопки» */
+  .toast-region {
+    display: flex !important;
+    gap: 8px !important;
+    height: auto !important;
+    min-width: var(--toast-width, 460px) !important;
+    align-items: stretch;
+  }
+
+  .toast-region--bottom,
+  .toast-region--bottom-start,
+  .toast-region--bottom-end {
+    flex-direction: column-reverse !important;
+  }
+
+  .toast-region--top,
+  .toast-region--top-start,
+  .toast-region--top-end {
+    flex-direction: column !important;
+  }
+
+  /* Сбрасываем JS-инлайн translate/scale на каждом тосте */
+  .toast {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    translate: none !important;
+    scale: none !important;
+    width: 100%;
+  }
+
+  /* Показываем все тосты, не только фронтальный */
+  .toast:not([data-frontmost="true"]) {
+    pointer-events: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
+  .toast:not([data-frontmost="true"]) .toast__close-button {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    outline: revert !important;
+  }
+
+  /* Toast: тень из brand book (светлая/тёмная — в tokens.css) */
+  .toast {
+    --tw-shadow: var(--brand-shadow-toast);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+  }
+
+  /* Toast: иконки выровнены по центру */
+  .toast__indicator {
+    align-self: center;
+  }
+}
+
+@layer components {
+  /* Radio: индикатор (внутренний кружок) красный в невалидном состоянии */
+  .radio[data-invalid="true"] .radio__indicator,
+  .radio[aria-invalid="true"] .radio__indicator {
+    @apply bg-danger;
+  }
+}
+
+/* Выделение выбранной опции в селектах (list-box) — работает в светлой и тёмной теме */
+@layer components {
+  .list-box-item[data-selected="true"],
+  .list-box-item[aria-selected="true"] {
+    @apply bg-accent-soft text-accent-soft-foreground;
+  }
+
+  @media (hover: hover) {
+    .list-box-item[data-selected="true"]:hover,
+    .list-box-item[data-selected="true"][data-hovered="true"],
+    .list-box-item[aria-selected="true"]:hover,
+    .list-box-item[aria-selected="true"][data-hovered="true"] {
+      @apply bg-accent-soft-hover;
+    }
+  }
+
+  .list-box-item[data-selected="true"] .list-box-item__indicator,
+  .list-box-item[aria-selected="true"] .list-box-item__indicator {
+    @apply text-accent;
+  }
+}
+
+/* ── Hero: лава-лампа — 3D блобы (лёгкий блик, тень, без мыла) ─────────── */
+/* На мобилке блобы мельче (размер в компоненте) и приглушённее */
+@media (max-width: 767px) {
+  .hero-blob-mobile {
+    opacity: 0.65;
+  }
+}
+
+.hero-blob-3d {
+  will-change: transform;
+  animation-fill-mode: backwards;
+  background:
+    radial-gradient(
+      ellipse 18% 18% at 24% 24%,
+      var(--blob-specular),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse 38% 38% at 30% 30%,
+      var(--blob-highlight),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse 60% 60% at 78% 78%,
+      var(--blob-shadow),
+      transparent 52%
+    ),
+    var(--blob-base);
+  box-shadow:
+    inset -3px -3px 12px var(--blob-shadow),
+    0 10px 32px -6px var(--blob-shadow);
+}
+
+/* ── Hero: лава-лампа — всплытие/опускание и перетекание форм ──────────── */
+@keyframes hero-lava-rise {
+  0%,
+  100% {
+    transform: translate(0, 22%) scale(1);
+  }
+  25% {
+    transform: translate(5%, -8%) scale(1.05);
+  }
+  50% {
+    transform: translate(-4%, -20%) scale(0.98);
+  }
+  75% {
+    transform: translate(3%, 5%) scale(1.02);
+  }
+}
+
+@keyframes hero-lava-sink {
+  0%,
+  100% {
+    transform: translate(0, -15%) scale(1);
+  }
+  25% {
+    transform: translate(-4%, 12%) scale(1.03);
+  }
+  50% {
+    transform: translate(3%, 22%) scale(0.97);
+  }
+  75% {
+    transform: translate(-2%, -5%) scale(1.01);
+  }
+}
+
+@keyframes hero-lava-morph {
+  0%,
+  100% {
+    border-radius: 32% 68% 58% 42% / 62% 38% 62% 38%;
+  }
+  20% {
+    border-radius: 68% 32% 42% 58% / 38% 62% 38% 62%;
+  }
+  40% {
+    border-radius: 48% 52% 68% 32% / 52% 48% 32% 68%;
+  }
+  60% {
+    border-radius: 62% 38% 42% 58% / 68% 32% 58% 42%;
+  }
+  80% {
+    border-radius: 38% 62% 52% 48% / 42% 58% 48% 52%;
+  }
+}

@@ -1,0 +1,144 @@
+/**
+ * Мост токенов → Tailwind v4 (@theme inline)
+ * Подключать ПОСЛЕ @import "tailwindcss" (и обычно после @heroui/styles)
+ */
+
+@theme inline {
+  /* Цвета — bg-brand-accent, text-brand-fg, border-brand-border … */
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-foreground: var(--brand-accent-foreground);
+  --color-brand-accent-muted: var(--brand-accent-muted);
+  --color-brand-accent-hover: var(--brand-accent-hover);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-secondary-foreground: var(--brand-secondary-foreground);
+
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-bg-elevated: var(--brand-bg-elevated);
+  --color-brand-bg-muted: var(--brand-bg-muted);
+  --color-brand-border: var(--brand-border);
+  --color-brand-border-strong: var(--brand-border-strong);
+
+  --color-brand-fg: var(--brand-fg);
+  --color-brand-fg-muted: var(--brand-fg-muted);
+  --color-brand-fg-subtle: var(--brand-fg-subtle);
+  --color-brand-fg-on-accent: var(--brand-fg-on-accent);
+
+  --color-brand-success: var(--brand-success);
+  --color-brand-success-fg: var(--brand-success-fg);
+  --color-brand-success-muted: var(--brand-success-muted);
+  --color-brand-warning: var(--brand-warning);
+  --color-brand-warning-fg: var(--brand-warning-fg);
+  --color-brand-warning-muted: var(--brand-warning-muted);
+  --color-brand-danger: var(--brand-danger);
+  --color-brand-danger-fg: var(--brand-danger-fg);
+  --color-brand-danger-muted: var(--brand-danger-muted);
+  --color-brand-info: var(--brand-info);
+  --color-brand-info-fg: var(--brand-info-fg);
+  --color-brand-info-muted: var(--brand-info-muted);
+
+  /* Отступы — p-brand-4, gap-brand-2, m-brand-8 … */
+  --spacing-brand-px: var(--brand-space-px);
+  --spacing-brand-0: var(--brand-space-0);
+  --spacing-brand-0_5: var(--brand-space-0_5);
+  --spacing-brand-1: var(--brand-space-1);
+  --spacing-brand-1_5: var(--brand-space-1_5);
+  --spacing-brand-2: var(--brand-space-2);
+  --spacing-brand-2_5: var(--brand-space-2_5);
+  --spacing-brand-3: var(--brand-space-3);
+  --spacing-brand-3_5: var(--brand-space-3_5);
+  --spacing-brand-4: var(--brand-space-4);
+  --spacing-brand-5: var(--brand-space-5);
+  --spacing-brand-6: var(--brand-space-6);
+  --spacing-brand-7: var(--brand-space-7);
+  --spacing-brand-8: var(--brand-space-8);
+  --spacing-brand-9: var(--brand-space-9);
+  --spacing-brand-10: var(--brand-space-10);
+  --spacing-brand-11: var(--brand-space-11);
+  --spacing-brand-12: var(--brand-space-12);
+  --spacing-brand-14: var(--brand-space-14);
+  --spacing-brand-16: var(--brand-space-16);
+  --spacing-brand-20: var(--brand-space-20);
+  --spacing-brand-24: var(--brand-space-24);
+
+  /* Скругления — rounded-brand-md */
+  --radius-brand-none: var(--brand-radius-none);
+  --radius-brand-xs: var(--brand-radius-xs);
+  --radius-brand-sm: var(--brand-radius-sm);
+  --radius-brand-md: var(--brand-radius-md);
+  --radius-brand-lg: var(--brand-radius-lg);
+  --radius-brand-xl: var(--brand-radius-xl);
+  --radius-brand-2xl: var(--brand-radius-2xl);
+  --radius-brand-3xl: var(--brand-radius-3xl);
+  --radius-brand-full: var(--brand-radius-full);
+
+  /* Шрифты — font-brand */
+  --font-brand: var(--brand-font-sans);
+  --font-brand-mono: var(--font-brand-mono);
+
+  /* Размер текста — text-brand-lg */
+  --text-brand-xs: var(--brand-text-xs);
+  --text-brand-sm: var(--brand-text-sm);
+  --text-brand-base: var(--brand-text-base);
+  --text-brand-lg: var(--brand-text-lg);
+  --text-brand-xl: var(--brand-text-xl);
+  --text-brand-2xl: var(--brand-text-2xl);
+  --text-brand-3xl: var(--brand-text-3xl);
+  --text-brand-4xl: var(--brand-text-4xl);
+
+  /* Интерлиньяж — leading-brand-normal */
+  --leading-brand-none: var(--brand-leading-none);
+  --leading-brand-tight: var(--brand-leading-tight);
+  --leading-brand-snug: var(--brand-leading-snug);
+  --leading-brand-normal: var(--brand-leading-normal);
+  --leading-brand-relaxed: var(--brand-leading-relaxed);
+  --leading-brand-loose: var(--brand-leading-loose);
+
+  /* Трекинг — tracking-brand-tight */
+  --tracking-brand-tighter: var(--brand-tracking-tighter);
+  --tracking-brand-tight: var(--brand-tracking-tight);
+  --tracking-brand-normal: var(--brand-tracking-normal);
+  --tracking-brand-wide: var(--brand-tracking-wide);
+
+  /* Тени — shadow-brand-md */
+  --shadow-brand-xs: var(--brand-shadow-xs);
+  --shadow-brand-sm: var(--brand-shadow-sm);
+  --shadow-brand-md: var(--brand-shadow-md);
+  --shadow-brand-lg: var(--brand-shadow-lg);
+  --shadow-brand-xl: var(--brand-shadow-xl);
+  --shadow-brand-inner: var(--brand-shadow-inner);
+  --shadow-brand-toast: var(--brand-shadow-toast);
+
+  /* Длительность — duration-brand-fast */
+  --duration-brand-instant: var(--brand-duration-instant);
+  --duration-brand-fast: var(--brand-duration-fast);
+  --duration-brand-normal: var(--brand-duration-normal);
+  --duration-brand-slow: var(--brand-duration-slow);
+  --duration-brand-slower: var(--brand-duration-slower);
+
+  /* Easing — ease-brand-out */
+  --ease-brand-default: var(--brand-ease-default);
+  --ease-brand-in: var(--brand-ease-in);
+  --ease-brand-out: var(--brand-ease-out);
+  --ease-brand-in-out: var(--brand-ease-in-out);
+  --ease-brand-bounce: var(--brand-ease-bounce);
+
+  /* Z-index — z-brand-modal */
+  --z-brand-base: var(--brand-z-base);
+  --z-brand-dropdown: var(--brand-z-dropdown);
+  --z-brand-sticky: var(--brand-z-sticky);
+  --z-brand-modal: var(--brand-z-modal);
+  --z-brand-popover: var(--brand-z-popover);
+  --z-brand-toast: var(--brand-z-toast);
+}
+
+/*
+ * HeroUI: поповеры date-picker / date-range-picker задают max-width по ширине триггера.
+ * Утилиты Tailwind из core-frontend/dist в приложении не сканируются — правим обычным CSS.
+ */
+@layer components {
+  .date-picker__popover,
+  .date-range-picker__popover {
+    min-width: 17.5rem !important;
+    max-width: min(calc(100vw - 1.5rem), 24rem) !important;
+  }
+}

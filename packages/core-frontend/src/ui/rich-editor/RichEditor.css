@@ -1,0 +1,382 @@
+.RichEditor {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.RichEditor-editorWrap {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.RichEditor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.RichEditor-section {
+  display: inline-flex;
+  align-items: center;
+}
+
+.RichEditor-sectionTools {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.RichEditor-separator {
+  min-height: 2rem;
+}
+
+.RichEditor-btnGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.RichEditor-btn {
+  min-width: 2rem;
+}
+
+.RichEditor-btnIcon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.RichEditor-btn svg {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+}
+
+.RichEditor-fontSelect {
+  height: 2rem;
+  min-width: 6.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0 0.55rem;
+  font-size: 0.875rem;
+  background: #fff;
+}
+
+.RichEditor-fontSelectBubble {
+  min-width: 5.25rem;
+}
+
+.RichEditor-srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.RichEditor-colorBtn {
+  box-shadow: 0 0 0 2px var(--RichEditor-swatch, transparent);
+}
+
+.RichEditor-linkPopover,
+.RichEditor-colorPopover {
+  border-radius: 0.75rem;
+}
+
+.RichEditor-linkPopoverBody,
+.RichEditor-colorPopoverBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.RichEditor-linkPopoverBody {
+  min-width: 18rem;
+}
+
+.RichEditor-colorPopoverBody {
+  min-width: 16rem;
+}
+
+.RichEditor-linkLabel,
+.RichEditor-colorLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.RichEditor-linkInput {
+  width: 100%;
+}
+
+.RichEditor-colorArea {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0.6rem;
+}
+
+.RichEditor-colorHue {
+  width: 100%;
+  min-width: 0;
+  padding-inline: 0.2rem;
+}
+
+.RichEditor-colorPalette {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+}
+
+.RichEditor-colorSwatch {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 24, 39, 0.25);
+  cursor: pointer;
+}
+
+.RichEditor-colorSwatch[aria-selected='true'] {
+  outline: 2px solid #3b82f6;
+  outline-offset: 1px;
+}
+
+.RichEditor-popoverActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.RichEditor-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.RichEditor-content {
+  line-height: 1.6;
+  color: inherit;
+}
+
+.RichEditor-content::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.RichEditor-content > *:first-child {
+  margin-top: 0;
+}
+
+.RichEditor-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.RichEditor-content p {
+  margin: 0.5rem 0;
+}
+
+.RichEditor-content h1,
+.RichEditor-content h2,
+.RichEditor-content h3 {
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.RichEditor-content h1 {
+  font-size: 1.875rem;
+}
+
+.RichEditor-content h2 {
+  font-size: 1.5rem;
+}
+
+.RichEditor-content h3 {
+  font-size: 1.25rem;
+}
+
+.RichEditor-content ul,
+.RichEditor-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.RichEditor-content ul {
+  list-style: disc;
+}
+
+.RichEditor-content ol {
+  list-style: decimal;
+}
+
+.RichEditor-content li > p {
+  margin: 0.15rem 0;
+}
+
+.RichEditor-content blockquote {
+  margin: 0.75rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid #d1d5db;
+  color: #4b5563;
+}
+
+.RichEditor-content div[data-youtube-video] {
+  margin: 0.75rem 0;
+}
+
+.RichEditor-content div[data-youtube-video] iframe {
+  display: block;
+  width: min(100%, 640px);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+.RichEditor-content mark {
+  border-radius: 0.2rem;
+  padding: 0.08em 0.18em;
+}
+
+.RichEditor-content a.RichEditor-link {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  color: inherit;
+  cursor: pointer;
+}
+
+.RichEditor-content a.RichEditor-fileLink {
+  word-break: break-all;
+}
+
+.RichEditor-content .RichEditor-imageMode-inlineWithText {
+  display: inline-block;
+  float: none;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin: 0 0.35rem;
+  border-radius: 0.5rem;
+  height: auto;
+}
+
+.RichEditor-content .RichEditor-imageInlineWrap {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: top;
+  max-width: 100%;
+  margin: 0 0.35rem;
+}
+
+.RichEditor-content .RichEditor-imageInlineWrap .RichEditor-imageMode-inlineWithText {
+  margin: 0;
+}
+
+.RichEditor-content .RichEditor-imageAlign[data-image-mode='wrapText'] {
+  display: block;
+  float: left;
+  max-width: calc(100% - 0.75rem);
+  box-sizing: border-box;
+  margin: 0.1rem 0.75rem 0.5rem 0;
+}
+
+.RichEditor-content
+  .RichEditor-imageAlign[data-image-mode='wrapText']
+  .RichEditor-imageMode-wrapText {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  height: auto;
+}
+
+.RichEditor-content .RichEditor-imageAlign[data-image-mode='wrapText'][data-text-align='right'] {
+  float: right;
+  margin: 0.1rem 0 0.5rem 0.75rem;
+}
+
+.RichEditor-content .RichEditor-imageAlign[data-image-mode='wrapText'][data-text-align='center'] {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RichEditor-imageCaption {
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  color: #6b7280;
+  text-align: inherit;
+}
+
+.RichEditor-imageCaptionInline {
+  margin-top: 0.2rem;
+}
+
+.RichEditor-imageAlign {
+  margin: 0.5rem 0;
+  padding-inline: 2px;
+}
+
+.RichEditor-imageAlign .RichEditor-imageMode-blockFullWidth {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.RichEditor-imageAlign[data-text-align='center'] .RichEditor-imageMode-blockFullWidth {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RichEditor-imageAlign[data-text-align='right'] .RichEditor-imageMode-blockFullWidth {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.RichEditor-imageAlign[data-text-align='left'] .RichEditor-imageMode-blockFullWidth {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.RichEditor-content .RichEditor-imageMode-inlineWithText.ProseMirror-selectednode {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+.RichEditor-content .RichEditor-imageInlineWrap.ProseMirror-selectednode {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+.RichEditor-content .RichEditor-imageMode-wrapText.ProseMirror-selectednode {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+.RichEditor-content .RichEditor-imageAlign.ProseMirror-selectednode {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.RichEditor-content .RichEditor-imageAlign.ProseMirror-selectednode .RichEditor-imageMode-blockFullWidth {
+  outline: none;
+}

@@ -1,0 +1,91 @@
+/* 1) Токены бренда + темы (светлая / тёмная) */
+@import './tokens/brand-tokens.css';
+/* 2) Tailwind + HeroUI */
+@import 'tailwindcss';
+@import '@heroui/styles';
+/* 3) Утилиты Tailwind из тех же переменных (bg-brand-*, p-brand-*, shadow-brand-*) */
+@import './tokens/brand-tailwind-bridge.css';
+
+/* Toast: вертикальный стек + тень из токенов */
+@layer components {
+  .toast-region {
+    display: flex !important;
+    gap: var(--brand-space-2) !important;
+    height: auto !important;
+    min-width: var(--toast-width, 460px) !important;
+    align-items: stretch;
+  }
+
+  .toast-region--bottom,
+  .toast-region--bottom-start,
+  .toast-region--bottom-end {
+    flex-direction: column-reverse !important;
+  }
+
+  .toast-region--top,
+  .toast-region--top-start,
+  .toast-region--top-end {
+    flex-direction: column !important;
+  }
+
+  .toast {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    translate: none !important;
+    scale: none !important;
+    width: 100%;
+  }
+
+  .toast:not([data-frontmost='true']) {
+    pointer-events: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
+  .toast:not([data-frontmost='true']) .toast__close-button {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    outline: revert !important;
+  }
+
+  .toast {
+    box-shadow: var(--brand-shadow-toast) !important;
+  }
+
+  .toast__indicator {
+    align-self: center;
+  }
+}
+
+@layer components {
+  .radio[data-invalid='true'] .radio__indicator,
+  .radio[aria-invalid='true'] .radio__indicator {
+    @apply bg-danger;
+  }
+}
+
+/* Селекты: выделение опции */
+@layer components {
+  .list-box-item[data-selected='true'],
+  .list-box-item[aria-selected='true'] {
+    @apply bg-accent-soft text-accent-soft-foreground;
+  }
+
+  @media (hover: hover) {
+    .list-box-item[data-selected='true']:hover,
+    .list-box-item[data-selected='true'][data-hovered='true'],
+    .list-box-item[aria-selected='true']:hover,
+    .list-box-item[aria-selected='true'][data-hovered='true'] {
+      @apply bg-accent-soft-hover;
+    }
+  }
+
+  .list-box-item[data-selected='true'] .list-box-item__indicator,
+  .list-box-item[aria-selected='true'] .list-box-item__indicator {
+    @apply text-accent;
+  }
+}

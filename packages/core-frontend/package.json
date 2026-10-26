@@ -1,0 +1,93 @@
+{
+  "name": "core-frontend",
+  "version": "0.1.1",
+  "description": "Shared UI-компоненты на базе HeroUI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles/tokens.css": "./src/styles/tokens/brand-tokens.css",
+    "./styles/tailwind-bridge.css": "./src/styles/tokens/brand-tailwind-bridge.css"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src/styles"
+  ],
+  "publishConfig": {
+    "registry": "https://git.onibox.ru/api/v4/projects/rossamahin_ni%2Fcore-frontend/packages/npm/"
+  },
+  "scripts": {
+    "build": "tsup",
+    "sync:shop": "node ./scripts/sync-to-shop.mjs",
+    "check": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "@gravity-ui/icons": "^2.18.0",
+    "@heroui/react": "^3.0.0-rc.1",
+    "@heroui/styles": "^3.0.0-rc.1",
+    "@tiptap/core": "^3.22.0",
+    "@tiptap/extension-bubble-menu": "^3.22.0",
+    "@tiptap/extension-highlight": "^3.22.0",
+    "@tiptap/extension-image": "^3.22.0",
+    "@tiptap/extension-link": "^3.22.0",
+    "@tiptap/extension-text-align": "^3.22.0",
+    "@tiptap/extension-text-style": "^3.22.0",
+    "@tiptap/extension-youtube": "^3.22.0",
+    "@tiptap/pm": "^3.22.0",
+    "@tiptap/react": "^3.22.0",
+    "@tiptap/starter-kit": "^3.22.0",
+    "react": "^19.0.0",
+    "react-aria-components": "^1.16.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@internationalized/date": "^3.8.0",
+    "@react-input/mask": "^2.0.4",
+    "@react-stately/data": "^3.15.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.5.0"
+  },
+  "overrides": {
+    "storybook": "10.3.1"
+  },
+  "devDependencies": {
+    "@gravity-ui/icons": "^2.18.0",
+    "@heroui/react": "^3.0.0-rc.1",
+    "@heroui/styles": "^3.0.0-rc.1",
+    "@storybook/addon-a11y": "10.3.1",
+    "@storybook/addon-docs": "10.3.1",
+    "@storybook/react-vite": "10.3.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "@tiptap/extension-bubble-menu": "^3.22.3",
+    "@tiptap/extension-highlight": "^3.22.3",
+    "@tiptap/extension-image": "^3.22.3",
+    "@tiptap/extension-link": "^3.22.3",
+    "@tiptap/extension-text-align": "^3.22.3",
+    "@tiptap/extension-text-style": "^3.22.3",
+    "@tiptap/extension-youtube": "^3.22.3",
+    "@tiptap/pm": "^3.22.3",
+    "@tiptap/react": "^3.22.3",
+    "@tiptap/starter-kit": "^3.22.3",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "miragejs": "^0.1.48",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "storybook": "10.3.1",
+    "tailwindcss": "^4.2.1",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1"
+  }
+}
