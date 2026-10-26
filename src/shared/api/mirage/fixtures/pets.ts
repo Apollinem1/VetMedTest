@@ -22,7 +22,7 @@ export const petsFixture: Pet[] = [
     id: 'p1',
     name: 'Тася',
     species: 'Кошка',
-    breed: 'Сибирская бомжатка',
+    breed: 'Сибирская',
     sex: 'female',
     birthDate: '2021-05-15',
     birthYear: null,
