@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run build --prefix packages/core-frontend && tsc && vite build",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
