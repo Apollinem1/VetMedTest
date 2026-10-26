@@ -60,7 +60,7 @@ export function PetFormPhoto({ photoUrl, onChange, disabled }: PetFormPhotoProps
         className="group relative size-28 shrink-0 overflow-hidden rounded-2xl ring-2 ring-neutral-200/80 transition hover:ring-emerald-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 disabled:opacity-50"
       >
         {hasPhoto ? (
-          <img src={photoUrl!} alt="" className="size-full object-cover" />
+          <img src={publicAssetUrl(photoUrl!)} alt="" className="size-full object-cover" />
         ) : (
           <div className="flex size-full items-center justify-center bg-linear-to-br from-emerald-400 via-emerald-500 to-teal-600">
             <Camera className="size-11 text-white/90 drop-shadow-sm" />
