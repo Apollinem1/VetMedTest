@@ -4,9 +4,10 @@ import { BrowserRouter } from 'react-router-dom'
 import { App } from '@/app'
 import '@/app/index.css'
 import { makeServer } from '@/shared/api/mirage'
+import { useMirageApi } from '@/shared/config'
 
-if (import.meta.env.DEV) {
-  makeServer({ environment: 'development' })
+if (useMirageApi) {
+  makeServer({ environment: import.meta.env.DEV ? 'development' : 'production' })
 }
 
 createRoot(document.getElementById('app')!).render(
