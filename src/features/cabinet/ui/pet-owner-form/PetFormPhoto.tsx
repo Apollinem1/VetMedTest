@@ -2,6 +2,7 @@ import { useCallback, useRef, useState, type ChangeEvent } from 'react'
 import { Camera } from '@gravity-ui/icons'
 import { Button } from 'core-frontend'
 import { MAX_PET_PHOTO_BYTES } from './constants'
+import { publicAssetUrl } from '@/shared/lib'
 
 type PetFormPhotoProps = {
   photoUrl: string | null | undefined

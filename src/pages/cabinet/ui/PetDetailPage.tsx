@@ -8,6 +8,7 @@ import { fetchPet, updatePet, type PetItem, type UpdatePetBody } from '@/shared/
 import { PetOwnerForm } from '@/features/cabinet/ui/pet-owner-form/PetOwnerForm'
 import { petToFormValues, type PetOwnerFormValues } from '@/features/cabinet/ui/pet-owner-form/types'
 import { SEX_OPTIONS } from '@/features/cabinet/ui/pet-owner-form/constants'
+import { publicAssetUrl } from '@/shared/lib'
 
 function formatDate(iso: string | null) {
   return iso ? new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'
@@ -119,7 +120,7 @@ export function PetDetailPage() {
               <div className="flex min-w-0 items-center gap-5">
                 <div className="relative size-24 shrink-0 overflow-hidden rounded-2xl shadow-md ring-2 ring-white ring-offset-2 ring-offset-neutral-50">
                   {pet.photoUrl ? (
-                    <img src={pet.photoUrl} alt="" className="size-full object-cover" />
+                    <img src={publicAssetUrl(pet.photoUrl)} alt="" className="size-full object-cover" />
                   ) : (
                     <div className="flex size-full items-center justify-center bg-linear-to-br from-emerald-400 via-emerald-500 to-teal-600">
                       <Heart className="size-11 text-white/90 drop-shadow-sm" />

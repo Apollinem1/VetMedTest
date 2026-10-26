@@ -28,6 +28,7 @@ import {
   type UserItem,
   type ClinicItem,
 } from '@/shared/api/cabinet'
+import { publicAssetUrl } from '@/shared/lib'
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('ru-RU', {
@@ -120,7 +121,7 @@ function OwnerCabinet({
                       <div className="relative w-[120px] shrink-0">
                         {pet.photoUrl ? (
                           <img
-                            src={pet.photoUrl}
+                            src={publicAssetUrl(pet.photoUrl)}
                             alt={pet.name}
                             className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
